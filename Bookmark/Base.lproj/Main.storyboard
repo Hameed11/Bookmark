@@ -86,18 +86,56 @@
         <!--Notes -->
         <scene sceneID="w1K-SQ-pTP">
             <objects>
-                <viewController id="6sT-Pg-ecB" sceneMemberID="viewController">
+                <viewController id="6sT-Pg-ecB" customClass="NotesViewController" customModule="Bookmark" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ySI-xv-cy4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VEy-9f-UiA">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellId" textLabel="qQf-36-LUL" style="IBUITableViewCellStyleDefault" id="wTt-Yu-TX2">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wTt-Yu-TX2" id="TGs-qz-dhN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qQf-36-LUL">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6sT-Pg-ecB" id="o78-7e-9it"/>
+                                    <outlet property="delegate" destination="6sT-Pg-ecB" id="DmE-53-OSo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="VEy-9f-UiA" secondAttribute="bottom" id="CTH-6e-W2C"/>
+                            <constraint firstItem="VEy-9f-UiA" firstAttribute="top" secondItem="InA-rT-t2R" secondAttribute="top" id="KKs-pN-jmh"/>
+                            <constraint firstItem="VEy-9f-UiA" firstAttribute="trailing" secondItem="InA-rT-t2R" secondAttribute="trailing" id="oMf-6b-9VW"/>
+                            <constraint firstItem="VEy-9f-UiA" firstAttribute="leading" secondItem="InA-rT-t2R" secondAttribute="leading" id="oMy-zK-768"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="InA-rT-t2R"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notes " id="h49-Qa-mjY"/>
+                    <connections>
+                        <outlet property="tableView" destination="VEy-9f-UiA" id="4fq-hL-tly"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zw-ax-Svk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="1002"/>
+            <point key="canvasLocation" x="805.79710144927537" y="1001.7857142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3k7-IM-rIb">
