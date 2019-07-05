@@ -14,6 +14,8 @@
 		73F8E1CD22C5D77B00CE3FDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F8E1CC22C5D77B00CE3FDA /* Assets.xcassets */; };
 		73F8E1D022C5D77B00CE3FDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F8E1CE22C5D77B00CE3FDA /* LaunchScreen.storyboard */; };
 		73F8E1D822C5DB8A00CE3FDA /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F8E1D722C5DB8A00CE3FDA /* NotesViewController.swift */; };
+		73F8E1DA22CD847700CE3FDA /* LinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F8E1D922CD847700CE3FDA /* LinksTableViewCell.swift */; };
+		73F8E1DC22CFF90300CE3FDA /* CreateLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F8E1DB22CFF90300CE3FDA /* CreateLinkViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		73F8E1CF22C5D77B00CE3FDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73F8E1D122C5D77B00CE3FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73F8E1D722C5DB8A00CE3FDA /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		73F8E1D922CD847700CE3FDA /* LinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksTableViewCell.swift; sourceTree = "<group>"; };
+		73F8E1DB22CFF90300CE3FDA /* CreateLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLinkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,14 @@
 			children = (
 				73F8E1C222C5D77A00CE3FDA /* AppDelegate.swift */,
 				73F8E1C422C5D77A00CE3FDA /* LinksViewController.swift */,
+				73F8E1DB22CFF90300CE3FDA /* CreateLinkViewController.swift */,
 				73F8E1C622C5D77A00CE3FDA /* Main.storyboard */,
 				73F8E1CC22C5D77B00CE3FDA /* Assets.xcassets */,
 				73F8E1CE22C5D77B00CE3FDA /* LaunchScreen.storyboard */,
 				73F8E1D122C5D77B00CE3FDA /* Info.plist */,
 				73F8E1C922C5D77A00CE3FDA /* Bookmark.xcdatamodeld */,
 				73F8E1D722C5DB8A00CE3FDA /* NotesViewController.swift */,
+				73F8E1D922CD847700CE3FDA /* LinksTableViewCell.swift */,
 			);
 			path = Bookmark;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F8E1DC22CFF90300CE3FDA /* CreateLinkViewController.swift in Sources */,
+				73F8E1DA22CD847700CE3FDA /* LinksTableViewCell.swift in Sources */,
 				73F8E1D822C5DB8A00CE3FDA /* NotesViewController.swift in Sources */,
 				73F8E1CB22C5D77A00CE3FDA /* Bookmark.xcdatamodeld in Sources */,
 				73F8E1C522C5D77A00CE3FDA /* LinksViewController.swift in Sources */,
