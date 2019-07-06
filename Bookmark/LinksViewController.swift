@@ -8,10 +8,11 @@
 
 import UIKit
 import CoreData
+import SafariServices
 
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-class LinksViewController: UIViewController, UITableViewDataSource {
+class LinksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     var links: [Link] = [Link]()
@@ -24,6 +25,8 @@ class LinksViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
         
         tableView.isHidden = false
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +65,40 @@ class LinksViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
+    
+    //MARK:_  delete object
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        // return .none cuz we are going to set our custom func to delete
+        return UITableViewCell.EditingStyle.delete
+    }
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let link = links[indexPath.row]
+        
+        if let encoded = link.url?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
+            
+            guard let url = URL(string: encoded) else { return}
+            let safari = SFSafariViewController(url: url)
+            present(safari, animated: true, completion: nil)
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let link = links.remove(at: fromIndexPath.row)
+        links.insert(link, at: to.row)
+        tableView.reloadData()
+    }
+    
+    
 
 }
 
@@ -92,7 +129,22 @@ extension LinksViewController {
     
     
     //REMOVE Object
-    
+    //remove a link at certine indexPath, indexPath: an enternal parameter of type indexPath use it to remove an object
+    func removeLink(atIndexPath indexPath: IndexPath) {
+        
+        //1 reference to managedContext
+        guard let manageContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+           //2 call managedContext.delete, we need to get a certine NSManagedObject links[indexPath.row]
+        manageContext.delete(links[indexPath.row])
+        
+         //3 tell the managedObject to update itself
+        do {
+            try manageContext.save()
+        } catch {
+            debugPrint("coudn't remove: \(error.localizedDescription)")
+        }
+    }
     
     
 }
