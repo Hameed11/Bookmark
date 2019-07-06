@@ -77,6 +77,25 @@ class LinksViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        // delete action
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rawAction, indexpath) in
+            //delete
+            self.removeLink(atIndexPath: indexPath)
+            
+            //fetch after delete
+            self.fetchCoreDataObj()
+            
+            //this going to remove certain row that we have  deleted
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        deleteAction.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        return [deleteAction]
+    }
+    
+    
+   
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -84,19 +103,29 @@ class LinksViewController: UIViewController, UITableViewDataSource, UITableViewD
         let link = links[indexPath.row]
         
         if let encoded = link.url?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
-            
+
             guard let url = URL(string: encoded) else { return}
             let safari = SFSafariViewController(url: url)
             present(safari, animated: true, completion: nil)
         }
+//
+//        guard let u = link.url else { return }
+//
+//        guard let url: URL = URL(string: u) else {
+//            fatalError("could not create URL");
+//
+//        }
+//
+//        let safariViewController: SFSafariViewController = SFSafariViewController(url: url);
+//        present(safariViewController, animated: true)
     }
     
     
-    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let link = links.remove(at: fromIndexPath.row)
-        links.insert(link, at: to.row)
-        tableView.reloadData()
-    }
+//    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+//        let link = links.remove(at: fromIndexPath.row)
+//        links.insert(link, at: to.row)
+//        tableView.reloadData()
+//    }
     
     
 
